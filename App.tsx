@@ -14,12 +14,10 @@ import {
 import {
   Colors,
   DebugInstructions,
-  Header,
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import AddClothingScreen from './src/AddClothingScreen'; // AddClothingScreen bileşenini ekledik
 
 // Diğer kodlar...
 
@@ -39,13 +37,9 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
         <View
         style={Style.globalBackground
         }>
-        {/* AddClothingScreen bileşeni */}
-        <AddClothingScreen />
-        {/* Diğer kodlar devam ediyor... */}
       </View>
       </ScrollView>
     </SafeAreaView>
