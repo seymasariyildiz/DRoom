@@ -1,0 +1,56 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+
+const HomeScreen = ({ navigation }) => {
+  const backgroundStyle = {
+    backgroundColor: '#FFFDD0', // Açık bir krem rengi
+  };
+
+  return (
+    <View style={[styles.container, backgroundStyle]}>
+      <TouchableOpacity style={[styles.button, styles.kiyafetEkleButton]} onPress={() => navigation.navigate('KiyafetEkle')}>
+        <Text style={styles.buttonText}>Kıyafet Ekle</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, styles.gardropButton]} onPress={() => navigation.navigate('Gardrop')}>
+        <Text style={styles.buttonText}>Gardrop</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, styles.kombinYapButton]} onPress={() => navigation.navigate('KombinYap')}>
+        <Text style={styles.buttonText}>Kombin Yap</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: 'rgb(255, 253, 208)', // Ana ekran arka planı krem rengi
+  },
+  button: {
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 10,
+    width: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+  },
+  kiyafetEkleButton: {
+    backgroundColor: 'blue', // Kıyafet Ekle butonunun arka planı mavi
+  },
+  gardropButton: {
+    backgroundColor: 'brown', // Gardrop yazısının arka planı kahverengi
+  },
+  kombinYapButton: {
+    backgroundColor: 'green', // Kombin Yap yazısının arka planı mavi'den yeşile belirsiz geçiş
+    borderWidth: 1,
+    borderColor: 'blue',
+  },
+});
+
+export default HomeScreen;
