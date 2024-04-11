@@ -55,12 +55,20 @@ const Gardrop = ({ navigation }) => {
   };
 
   return (
+
     <View style={{ flex: 1 }}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}> {/* Geri butonu */}
+        {/* Geri butonu */}
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
-        <Text style={styles.title}>Gardrop</Text> {/* Gardrop yazısı */}
+        {/* Gardrop yazısı */}
+        <Text style={styles.title}>Gardrop</Text>
+      </View>
+
+      <View style={styles.container}>
+        {/* Diğer bileşenler */}
+        <AddClothes onConfirm={handleConfirm} existingClothes={existingClothes} />
       </View>
 
       {/* Kıyafetlerin listeleneceği FlatList */}
@@ -69,10 +77,11 @@ const Gardrop = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => selectClothes(item)} style={selectedClothes.includes(item) ? styles.selectedItem : styles.item}>
             <Image source={{ uri: item.image }} style={{ width: 100, height: 100 }} />
-            <Text>{item.tag}</Text> {/* Kıyafet etiketi */}
+            {/* Kıyafet etiketi */}
+            <Text>{item.tag}</Text> 
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => (Stringitem.id)}
         horizontal
       />
 
