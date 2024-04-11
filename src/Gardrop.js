@@ -67,7 +67,7 @@ const Gardrop = ({ navigation, existingClothes }) => {
     <View style={{ flex: 1 }}>
       <View style={styles.header}>
         {/* Geri butonu */}
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
         {/* Gardrop yazısı */}
@@ -116,7 +116,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    zIndex: 1,
   },
   title: {
     fontSize: 20,

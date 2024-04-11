@@ -66,7 +66,7 @@ const AddClothes = ({ onConfirm, onBack, navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Kıyafet Ekle</Text>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={handleChoosePhotoFromCamera}>
