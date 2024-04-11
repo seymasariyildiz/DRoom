@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, Image, StyleSheet } from 'react-native';
 import Modal from 'react-native-modal';
 import { Ionicons } from '@expo/vector-icons'; // Geri butonu için Ionicons kullanıyoruz
+import AddClothes from './AddClothes';
 
-const Gardrop = ({ navigation }) => {
+const Gardrop = ({ navigation, existingClothes }) => {
   const [clothes, setClothes] = useState([]); // Kıyafetleri saklayacak state
   const [selectedClothes, setSelectedClothes] = useState([]); // Seçilen kıyafetleri saklayacak state
   const [modalVisible, setModalVisible] = useState(false); // Modal görünürlüğünü saklayacak state
@@ -54,8 +55,15 @@ const Gardrop = ({ navigation }) => {
     setModalVisible(false);
   };
 
-  return (
+  // Kıyafet ekleme onayı işlevi
+  const handleConfirm = (selectedImage) => {
+    // Burada yapılacak işlemleri gerçekleştirin
+    console.log('Selected image:', selectedImage);
+    // Kıyafeti ekleme işlevine çağrı yap
+    addClothes([{ id: String(Math.random()), image: selectedImage, tag: 'New Clothing' }]);
+  };
 
+  return (
     <View style={{ flex: 1 }}>
       <View style={styles.header}>
         {/* Geri butonu */}
@@ -64,13 +72,8 @@ const Gardrop = ({ navigation }) => {
         </TouchableOpacity>
         {/* Gardrop yazısı */}
         <Text style={styles.title}>Gardrop</Text>
+        
       </View>
-
-      <View style={styles.container}>
-        {/* Diğer bileşenler */}
-        <AddClothes onConfirm={handleConfirm} existingClothes={existingClothes} />
-      </View>
-
       {/* Kıyafetlerin listeleneceği FlatList */}
       <FlatList
         data={clothes}
@@ -81,14 +84,11 @@ const Gardrop = ({ navigation }) => {
             <Text>{item.tag}</Text> 
           </TouchableOpacity>
         )}
-        keyExtractor={(item) => (Stringitem.id)}
+        keyExtractor={(item) => (String(item.id))}
         horizontal
+        style={{ borderBottomWidth: 0 }} // Mavi çizgiyi kaldırır
       />
 
-      {/* Kıyafet ekleme butonu */}
-      <TouchableOpacity onPress={() => addClothes(sampleClothes)} style={styles.button}>
-        <Text style={styles.buttonText}>Kıyafet Ekle</Text>
-      </TouchableOpacity>
 
       {/* Kombin yap butonu (sadece çoklu kıyafet seçimi yapıldığında aktif hale gelir) */}
       {selectedClothes.length > 1 && (
@@ -110,19 +110,13 @@ const Gardrop = ({ navigation }) => {
   );
 };
 
-// Örnek kıyafet verisi
-const sampleClothes = [
-  { id: '1', image: 'https://via.placeholder.com/150', tag: 'Kıyafet 1' },
-  { id: '2', image: 'https://via.placeholder.com/150', tag: 'Kıyafet 2' },
-  { id: '3', image: 'https://via.placeholder.com/150', tag: 'Kıyafet 3' },
-];
-
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
+
   },
   title: {
     fontSize: 20,
