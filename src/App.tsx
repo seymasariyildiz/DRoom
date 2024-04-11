@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Gardrop from './Gardrop'; 
 import HomeScreen from './HomeScreen';
+import AddClothes from './AddClothes';
 
 const Stack = createStackNavigator();
 
@@ -14,16 +15,24 @@ const App = () => {
           name="Ana Sayfa"
           component={HomeScreen}
           options={{
-            headerShown: false, // Başlık çubuğunu gizlemek için
-            cardStyle: { backgroundColor: 'rgb(255, 253, 208)' }, // Ana ekranın arka plan rengi
+            headerShown: false,
+            cardStyle: { backgroundColor: 'rgb(255, 253, 208)' },
           }}
         />
         <Stack.Screen
           name="Gardrop"
           component={Gardrop}
           options={{
-            headerShown: false, // Başlık çubuğunu gizlemek için
-            cardStyle: { backgroundColor: 'rgb(255, 253, 208)' }, // Gardrop ekranın arka plan rengi
+            headerShown: false,
+            cardStyle: { backgroundColor: 'rgb(255, 253, 208)' },
+          }}
+        />
+        <Stack.Screen
+          name="AddClothes"
+          component={AddClothes}
+          options={{
+            headerShown: false,
+            cardStyle: { backgroundColor: 'rgb(255, 253, 208)' },
           }}
         />
       </Stack.Navigator>

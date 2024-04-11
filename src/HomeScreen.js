@@ -8,7 +8,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={[styles.container, backgroundStyle]}>
-      <TouchableOpacity style={[styles.button, styles.kiyafetEkleButton]} onPress={() => navigation.navigate('KiyafetEkle')}>
+      <TouchableOpacity style={[styles.button, styles.kiyafetEkleButton]} onPress={() => navigation.navigate('AddClothes')}>
         <Text style={styles.buttonText}>Kıyafet Ekle</Text>
       </TouchableOpacity>
       <TouchableOpacity style={[styles.button, styles.gardropButton]} onPress={() => navigation.navigate('Gardrop')}>
